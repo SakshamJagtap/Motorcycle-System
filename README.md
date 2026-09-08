@@ -1,4 +1,4 @@
-# CEP Motorcycle System: AI-Driven Telemetry & Safety
+# Motorcycle System: AI-Driven Telemetry & Safety
 An edge-AI telemetry and adaptive rider intelligence platform that retrofits modern mid-capacity motorcycles into smart, connected vehicles using an ultra-low-cost hybrid architecture. 
 
 **Academic Affiliation:** B.Tech Information Technology, Pimpri Chinchwad College of Engineering
