@@ -1,7 +1,7 @@
 # Motorcycle System: AI-Driven Telemetry & Safety
 An edge-AI telemetry and adaptive rider intelligence platform that retrofits modern mid-capacity motorcycles into smart, connected vehicles using an ultra-low-cost hybrid architecture. 
 
-**Academic Affiliation:** B.Tech Information Technology, Pimpri Chinchwad College of Engineering
+**Academic Affiliation:** B.Tech Computer Science and Engineering(Artificial Intelligence and Machine Learning), Pimpri Chinchwad College of Engineering
 
 ### ⚙️ System Architecture
 * **Hardware Bridge:** ELM327 Bluetooth Scanner (v1.5) via Euro 5 to 16-pin OBD-II Adapter.
