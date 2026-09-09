@@ -152,5 +152,16 @@
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
+    <!-- End Ride Button (Triggers Analytics) -->
+    <Button
+        android:id="@+id/btnFinishRide"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#222222"
+        android:text="🛑 END RIDE &amp; VIEW SCORE"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -9,6 +9,10 @@ import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.channels.FileChannel
+import android.content.Intent
+import android.widget.Button
+import android.Manifest
+import android.content.pm.PackageManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,13 +21,42 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtRPM: TextView
     private lateinit var txtGear: TextView
 
+    private val blackboxManager = SOSBlackboxManager(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 1. Check if Bluetooth and SOS permissions are already granted
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+            checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ||
+            checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
+            // 2. Trigger the Android system popup asking the rider for access
+            requestPermissions(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.SEND_SMS,
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.BLUETOOTH_SCAN
+                ),
+                101
+            )
+        }
+
         txtShiftCue = findViewById(R.id.txtShiftCue)
         txtRPM = findViewById(R.id.txtRPM)
         txtGear = findViewById(R.id.txtGear)
+
+        // 1. Link the Finish Ride Button
+        val btnFinishRide: Button = findViewById(R.id.btnFinishRide)
+
+        // 2. Listen for the Tap
+        btnFinishRide.setOnClickListener {
+            // Launch the Post-Ride Analytics Activity
+            val intent = Intent(this, RideSummaryActivity::class.java)
+            startActivity(intent)
+        }
 
         // 1. Initialize TFLite Model from Assets
         try {
